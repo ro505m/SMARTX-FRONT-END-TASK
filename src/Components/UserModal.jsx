@@ -18,7 +18,7 @@ export default function UserModal({
 
     async function handleSubmit(e) {
         e.preventDefault();
-        if (userData.id !== null) {
+        if (userData.id !== null && userData.id !== undefined && userData.id !== -1) {
             try {
                 await updatePerson(userData.id, userData);
                 setFlage(prev => !prev);
