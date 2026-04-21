@@ -109,7 +109,7 @@ export default function UserModal({
                     type="submit"
                     className="flex-1 cursor-pointer px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition-all font-medium shadow-lg shadow-blue-500/20"
                 >
-                    Save Changes
+                    Save
                 </button>
                 </div>
             </form>
