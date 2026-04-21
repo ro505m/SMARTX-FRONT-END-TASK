@@ -1,10 +1,46 @@
+import toast from "react-hot-toast";
+
 export default function UserModal({
     setIsUpdateModalOpen,
     userData,
-    handleUserDataChange,
-    editUser,
+    updatePerson,
     createUser,
+    setUserData,
+    setFlage
     }) {
+    function handleUserDataChange(e) {
+        const { name, value } = e.target;
+        setUserData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    }
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        if (userData.id !== null) {
+            try {
+                await updatePerson(userData.id, userData);
+                setFlage(prev => !prev);
+                setIsUpdateModalOpen(false);
+                toast.success("Person updated successfully");
+            } catch (err) {
+                console.error(err);
+                toast.error("Failed to update person.");
+            }
+        } else {
+            try {
+                await createUser(userData);
+                setFlage(prev => !prev);
+                setIsUpdateModalOpen(false);
+                toast.success("Person created successfully");
+            } catch (err) {
+                console.error(err);
+                toast.error("Failed to create person.");
+            }
+        }
+    }
+
     return (
         <div className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm">
             <div className="w-full max-w-md bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden">
@@ -23,14 +59,7 @@ export default function UserModal({
             </div>
             
             <form className="p-6 space-y-4"
-                onSubmit={(e) => {
-                    e.preventDefault();
-                    if (userData.id !== null) {
-                    editUser(userData.id);
-                    } else {
-                    createUser();
-                    }
-                }}
+                onSubmit={(e) => handleSubmit(e)}
                 >
                 <div>
                 <label className="block text-sm font-medium text-slate-400 mb-1">Full Name</label>
