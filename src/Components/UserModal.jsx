@@ -79,10 +79,10 @@ export default function UserModal({
                     name="is_married"
                     value={userData.is_married}
                     onChange={(e) => handleUserDataChange(e)}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all appearance-none"
+                    className="w-full cursor-pointer bg-slate-950 border border-slate-700 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all appearance-none"
                     >
-                    <option value={"true"}>Married</option>
-                    <option value={"false"}>Single</option>
+                    <option value={"true"} className="cursor-pointer">Married</option>
+                    <option value={"false"} className="cursor-pointer">Single</option>
                     </select>
                 </div>
 

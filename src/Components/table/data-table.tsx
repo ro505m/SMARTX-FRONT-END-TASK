@@ -79,11 +79,11 @@ const renderFilter = (column: any, filters: any, setFilters: any) => {
                 [key]: e.target.value,
                 }))
             }
-            className="w-full px-2 py-1 text-xs border rounded bg-gray-950 text-white"
+            className="w-full cursor-pointer px-2 py-1 text-xs border rounded bg-gray-950 text-white"
             >
-            <option value="">All</option>
-            <option value="true">Married</option>
-            <option value="false">Single</option>
+            <option value="" className="cursor-pointer">All</option>
+            <option value="true" className="cursor-pointer">Married</option>
+            <option value="false" className="cursor-pointer">Single</option>
             </select>
         );
 
@@ -130,7 +130,7 @@ const renderFilter = (column: any, filters: any, setFilters: any) => {
                     [`${key}_from`]: e.target.value,
                 }))
                 }
-                className="px-1 text-xs border rounded text-white"
+                className="px-1 cursor-pointer text-xs border rounded text-white"
             />
 
             <input
@@ -142,7 +142,7 @@ const renderFilter = (column: any, filters: any, setFilters: any) => {
                     [`${key}_to`]: e.target.value,
                 }))
                 }
-                className="px-1 text-xs border rounded text-white"
+                className="px-1 cursor-pointer text-xs border rounded text-white"
             />
             </div>
         );

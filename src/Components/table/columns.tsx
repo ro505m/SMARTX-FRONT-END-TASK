@@ -98,15 +98,13 @@ export const columns = (
                 onClick={() => {
                     handleEdit(person);
                 }}
-                className="px-2 py-1 text-xs rounded-md bg-blue-500 text-white hover:bg-blue-600 transition"
+                className="px-2 py-1 cursor-pointer text-xs rounded-md bg-blue-500 text-white hover:bg-blue-600 transition"
                 >
                 Edit
                 </button>
 
                 <button
                 onClick={async () => {
-                    // const confirmDelete = window.confirm("Are you sure?");
-                    // if (!confirmDelete) return;
                     try {
                         await peopleApi.deletePerson(person.id);
                         setFlage(prev => !prev);
@@ -115,7 +113,7 @@ export const columns = (
                         toast.error("Failed to delete person");
                     }
                 }}
-                className="px-2 py-1 text-xs rounded-md bg-red-500 text-white hover:bg-red-600 transition"
+                className="px-2 py-1 cursor-pointer text-xs rounded-md bg-red-500 text-white hover:bg-red-600 transition"
                 >
                 Delete
                 </button>
